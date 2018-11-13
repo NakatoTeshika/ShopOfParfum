@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+
+}
+  .fontstyle h4{
+       font-family: font-family: 'Lora', serif;
+       color: rgb(206, 12, 76); 
+  }
+  .colorlink a{
+       font-family: font-family: 'Lora', serif;
+       color: rgb(206, 12, 76); 
+       font-size: 12px;
+  }
+</style>
+
+<center>
+           <a  href="Home/Shop"> <img src="https://www.monamie.kz/upload/iblock/bfe/bfee97dea21412857781eca041357bdb.jpg" alt="ASP.NET" class="img-responsive" /></a>
+</center>
+@model List<Good>
+     @{
+         int inLine = 2;
+      }
+    
+<div class="page-header fontstyle">
+    <center>
+  <h4>
+     НОВИНКА
+  </h4>
+  </center>
+  
+</div>
+    <center>
+               
+                         <div class="col-lg-10 col-md-9 col-sm-8" id="cards">
+            
+                               @Html.Partial("ProductSummary", @Model[1+2]);
+                              
+                          
+                </div>  
+                  
+                
+
+            
+     </center>
+  

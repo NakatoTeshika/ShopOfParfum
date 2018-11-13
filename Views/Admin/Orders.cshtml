@@ -1,0 +1,53 @@
+@model List<ClientAndGoods>
+
+<div class="row">
+        <div class="col-lg-2"></div>
+    <div class="col-lg-1">
+        @Html.Partial("AdminMenu")
+    </div>
+    
+    <div class="col-lg-7">
+
+    <div class="col-md-9">
+    <br>
+    <table class="table table-bordered table-striped col-md-12">
+        <thead>
+            <tr>
+            <th>Имя</th>            
+            <th>Почта</th>
+            <th>Адрес доставки</th>
+            <th >Товары</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach(var t in @Model)
+            {
+                <tr>
+                    <td>
+                        @t.Client.Name
+                    </td>
+                    <td>
+                        @t.Client.Email
+                    </td>
+                    <td>
+                        @t.Client.Adress
+                    </td>
+                    <td>
+                    @foreach (var item in t.Goods)
+                    {   
+                        <div>@item.Name
+                         @t.Client.ClientGood.Where(w=>w.Good == item).FirstOrDefault().Quantity
+                        </div>
+                         
+                         
+                     }
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+   
+    </div>
+    </div>

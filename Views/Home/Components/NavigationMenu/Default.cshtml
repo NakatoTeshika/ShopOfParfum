@@ -1,0 +1,31 @@
+@model IQueryable<string>
+
+      <ul class="nav flex-column">
+                  
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Home" asp-action="Index">Все</a>
+                    </li>
+                  
+                    <!-- <input type="checkbox" name="option5" value="a5"></p>   -->
+                    @foreach(var q in Model)
+                    {
+                      
+                        <li class="nav-item">
+                        <a class="nav-link active" asp-route-street="@q" asp-controller="Home" asp-action="Index">@q</a>
+                        </li>
+                    }
+                    <!-- <!-- @foreach(var br in Model)
+                    {
+                      
+                        <li class="nav-item">
+                        <a class="nav-link active" asp-route-street="@br" asp-controller="Home" asp-action="MyAction">@br</a>
+                        </li>
+                    } -->
+                     <div>
+                         <label for="subscribeNews">ARMANI</label>
+                        <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                        
+                    </div> 
+                  
+                    </ul>
+                    </string>

@@ -1,0 +1,46 @@
+@model Cart
+
+
+<div class="container">
+<div class="col-md-12">
+    <h2>Корзина</h2>
+<table class="table table-bordered table-striped col-md-12" >
+    <thead>
+        <tr>
+            <th>Товар</th>            
+            <th>Количество</th>
+            <th class="text-right">Цена</th>
+            <th class="text-right">Итог</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Lines) {
+        <tr>
+            <td class="text-left">@line.Good.Name</td>
+            <td class="text-center">@line.Quantity</td>
+            <td class="text-right">@line.Good.Price.ToString(".тг")</td>
+            <td class="text-right">
+                @((line.Quantity * line.Good.Price).ToString(".тг"))
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Итог:</td>
+            <td class="text-right">
+                @Model.ComputeTotalValue().ToString(".тг")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<form asp-controller="Checkout" asp-action="Index">
+    <button class="btn  btn-primary" style="float:right; margin-left:10px">Купить</button>
+</form>
+
+<form asp-controller="Cart" asp-action="RemoveAll">
+    <button class="btn" style="float:right">Очистить корзину</button>
+</form>
+</div>
+</div>
